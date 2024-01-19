@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a2588e9f4fe5940aa7c5ea59c851a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goCanvas: {fileID: 0}
+  goCanvas: {fileID: 3586262517319053107, guid: d120bb716e3e6a0459677250ecbc3954, type: 3}
 --- !u!114 &519970155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   damage: 100
-  rateOfFire: 3
+  rateOfFire: 1
   playerCam: {fileID: 2972516184512037553}
   muzzleFlash: {fileID: 3614249443508621660, guid: 956f050236ab0c948b3820d65aa62382, type: 3}
   hitVFX: {fileID: 100010, guid: 5ef56ba79236bbb409a1b7ccc33d408a, type: 3}

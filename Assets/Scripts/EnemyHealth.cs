@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
 
     [SerializeField] float EnemyHp = 100f;
+    [SerializeField] GameObject scoreCanvas;
 
     bool isDead = false;
 
@@ -25,12 +26,18 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private void Die()
-    {
-        if(isDead)
+    {      
+        if (isDead)
         {
             return;
         }
         isDead = true;
         GetComponent<Animator>().SetTrigger("isDying");
+        scoreCanvas.GetComponent<ScoreManager>().Score = scoreCanvas.GetComponent<ScoreManager>().Score + 10;
+    }
+
+    private void Start()
+    {
+        scoreCanvas = GameObject.FindGameObjectWithTag("scoreCanvas");
     }
 }

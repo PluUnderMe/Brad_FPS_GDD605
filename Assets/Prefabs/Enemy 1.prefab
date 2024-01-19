@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: 5
   turnSpeed: 5
-  playerTarget: {fileID: 0}
+  playerTarget: {fileID: 2972516184511487155, guid: a4a54ca103eb45a48ad6d84ec1b13970, type: 3}
 --- !u!114 &581248499137065877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  playerTarget: {fileID: 0}
+  playerTarget: {fileID: 519970155, guid: a4a54ca103eb45a48ad6d84ec1b13970, type: 3}
 --- !u!114 &8321513617172017796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHp: 100
+  scoreCanvas: {fileID: 4885006971636451538, guid: 6ed4a48f9b5877646aa31f567e07a363, type: 3}
 --- !u!1001 &843884076583001676
 PrefabInstance:
   m_ObjectHideFlags: 0

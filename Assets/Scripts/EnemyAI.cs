@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         nMA = GetComponent<NavMeshAgent>();
+        playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
