@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class WeaponWheelController : MonoBehaviour
 {
+    //parramets for the weapon wheel controller
     public Animator anim;
     private bool weaponWheelSelected = false;
     public Image selectedItem;
@@ -24,7 +25,7 @@ public class WeaponWheelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab) && menuIsOpen == false)
+        if(Input.GetKeyDown(KeyCode.Tab) && menuIsOpen == false) //allows the weapon wheel to open when tab is pressed allows the cursor to be shown and used while the menu is open
         {
             canvas.SetActive(true);
             weaponWheelSelected = !weaponWheelSelected;
@@ -34,7 +35,7 @@ public class WeaponWheelController : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab) && menuIsOpen == true)
+        if(Input.GetKeyDown(KeyCode.Tab) && menuIsOpen == true) //allows the weapon wheel to close when tab is pressed allows the cursor to dissapear and used while the menu is closed
         {
             weaponWheelSelected = !weaponWheelSelected;
             Cursor.lockState = CursorLockMode.Locked;
@@ -44,7 +45,7 @@ public class WeaponWheelController : MonoBehaviour
             return;
         }
 
-        if (weaponWheelSelected)
+        if (weaponWheelSelected) //sets the open and close animations for the weapon wheel
         {
             anim.SetBool("OpenWeaponWheel", true);
         }
@@ -53,7 +54,7 @@ public class WeaponWheelController : MonoBehaviour
             anim.SetBool("OpenWeaponWheel", false);
         }
         
-        switch (weaponID)
+        switch (weaponID) //sets the weapons in the hirachy to be active based on if their ID is active
         {
 
             case 0: //nothing is selecetd
@@ -89,7 +90,7 @@ public class WeaponWheelController : MonoBehaviour
         weaponController.currentAmmo = weaponID;
     }
 
-    private void Start()
+    private void Start() // sets the cursor to locked at the start
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -97,7 +98,7 @@ public class WeaponWheelController : MonoBehaviour
         weaponController = GameObject.Find("MainCamera").GetComponent<WeaponController>();
     }
 
-    void CloseMenu()
+    void CloseMenu() //disables the canvas once its been closed
     {
         canvas.SetActive(false);
     }

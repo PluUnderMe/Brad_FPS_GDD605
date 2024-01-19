@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    //Parameters
+    //Parameters 
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 33f;
     public float rateOfFire = 1f;
@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private IEnumerator Shoot()
+    private IEnumerator Shoot() //means the ammo count will be affected by what weapon is being used, also projects a ray cast and plays a muzzle flash particle effect
     {
 
         if (weaponController.ammoTypes[weaponController.currentAmmo] <= 0)
@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour
         canShoot = true;
     }
 
-    private void ProcessRaycast()
+    private void ProcessRaycast() //means the raycast will dectet thing in  range of the weapon stats and adds a vfx to what we hit
     {
         RaycastHit thingWeHit;
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out thingWeHit, range))

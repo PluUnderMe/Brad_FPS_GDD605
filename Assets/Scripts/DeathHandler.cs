@@ -13,7 +13,7 @@ public class DeathHandler : MonoBehaviour
         goCanvas.enabled = false;
     }
 
-    public void HandleDeath()
+    public void HandleDeath() //enables the death canvas and unlocks the cursor while making it visible
     {
         goCanvas.enabled = true;
         Cursor.visible = true;

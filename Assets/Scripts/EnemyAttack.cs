@@ -8,7 +8,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] PlayerHealth playerTarget;
 
 
-    public void AttackHitEvent()
+    public void AttackHitEvent() //sets the damage and when the player will take damage from the enemy
     {
         
         if (playerTarget == null) { return; }

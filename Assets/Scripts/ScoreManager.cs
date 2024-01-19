@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] GameObject scoreText;
 
-    public float Score = 0f;
+    public float Score = 0f; //sets score to 0
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +17,9 @@ public class ScoreManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //takes the player to the completion scene once the score reaches 100 or above
     {
-        scoreText.GetComponent<TextMeshProUGUI>().text = Score.ToString();
+        scoreText.GetComponent<TextMeshProUGUI>().text = Score.ToString(); 
         if (Score >= 100)
         {
             SceneManager.LoadScene("CompletionScreen");

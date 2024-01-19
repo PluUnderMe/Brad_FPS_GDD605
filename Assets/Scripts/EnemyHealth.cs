@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
+    //sets the enemy health
     [SerializeField] float EnemyHp = 100f;
     [SerializeField] GameObject scoreCanvas;
 
     bool isDead = false;
 
 
-    public bool IsDead()
+    public bool IsDead() //checks to see if the enemy is dead
     {
         return isDead;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage) //when they have taken damage to 0 or below health die 
     {
         GetComponent<EnemyAI>().onDamageTaken();
         EnemyHp -= damage;
@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
             Die();
     }
 
-    private void Die()
+    private void Die() //when they die triggers the animator and increase the score canvas
     {      
         if (isDead)
         {

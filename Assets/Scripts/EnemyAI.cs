@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     bool isAggro = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() // gets the nav mesh agent and lets the script know what the tag player is 
     {
         nMA = GetComponent<NavMeshAgent>();
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
@@ -27,14 +27,14 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
 
-        if (GetComponent<EnemyHealth>().IsDead())
+        if (GetComponent<EnemyHealth>().IsDead()) //disables and destroys the enemy once they are dead
         {
             enabled = false;
             nMA.enabled = false;
             Destroy(gameObject, 3);
         }
 
-        distanceToTarget = Vector3.Distance(playerTarget.position, transform.position);
+        distanceToTarget = Vector3.Distance(playerTarget.position, transform.position); //sets the aggro distance towards the player
 
         if (isAggro)
         {
@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    private void EngageTarget()
+    private void EngageTarget() //changes the enemy to chase or attack the player depending on distance between them
     {
         FaceTarget();
 
@@ -63,14 +63,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void ChasePlayer()
+    private void ChasePlayer() //sets the animtion to moving when chaing the player
     {
         GetComponent<Animator>().SetBool("isMoving", true);
         nMA.SetDestination(playerTarget.transform.position);
     }
 
 
-    private void AttackPlayer()
+    private void AttackPlayer() //sets teh animation to attack when attacking the player
     {
         GetComponent<Animator>().SetBool("isAttacking", true);
 
@@ -81,14 +81,14 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 
-    void FaceTarget()
+    void FaceTarget() //makes the enemy face towards the player
     {
         Vector3 direction = (playerTarget.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void onDamageTaken()
+    public void onDamageTaken() //lets the enemy become aggro is attacked
     {
         isAggro = true;
     }

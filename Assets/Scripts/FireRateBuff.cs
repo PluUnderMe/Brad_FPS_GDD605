@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class FireRateBuff : MonoBehaviour
 {
-    public float multiplier = 2f;
-    public float duration = 10f;
+    public float multiplier = 2f; //how much faster the fire rate will be
+    public float duration = 10f; //duration of the buff
 
     [SerializeField] GameObject player;
     [SerializeField] GameObject chosenWeapon;
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) //allows the buff to be interacted with by the player tag
     {
         if (other.name == "Player")
         {
@@ -40,7 +40,7 @@ public class FireRateBuff : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    private void Update() //checks the children of the current weapon to give that weapon the fire rate buff
     {
         if (player.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.activeInHierarchy == true)
         {
